@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anomalous Pedestrian Behavior Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2C3E50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #2980B9;
+            border-bottom: 2px solid #2980B9;
+            padding-bottom: 5px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .image {
+            text-align: center;
+            margin: 20px 0;
+        }
+        img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2C3E50;
+            color: white;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>Anomalous Pedestrian Behavior Detection for Autonomous Vehicles</header>
+    
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>
+            The development of autonomous vehicles requires robust perception systems capable of accurately detecting pedestrians and ensuring safety in urban environments. 
+            However, pedestrian behavior is highly unpredictable, with actions such as jaywalking, sudden stops, and erratic movements posing significant risks. 
+            This project focuses on detecting anomalous pedestrian behavior using deep learning techniques, particularly YOLOv8 for object detection and an LSTM Autoencoder for anomaly detection.
+        </p>
+        
+        <h2>Data Collection & Preprocessing</h2>
+        <p>
+            The dataset used for this project is the JAAD (Joint Attention for Autonomous Driving) dataset, which contains real-world urban driving scenarios captured from vehicle dashboards. 
+            The raw video data was processed by extracting frames and applying the YOLOv8 model to detect pedestrians, extracting their bounding box coordinates. These detections were then stored for motion analysis.
+        </p>
+        <!-- <div class="video">
+            <video controls>
+                <source src="https://drive.google.com/file/d/1wW_gE2rDj4j1GmiD0YcQ9K81yVbdyVbJ/view?usp=sharing" type="video/mp4">
+                Your browser does not support the video tag. 
+                <a href="https://drive.google.com/file/d/1wW_gE2rDj4j1GmiD0YcQ9K81yVbdyVbJ/view?usp=sharing">Download Video</a>
+            </video>
+        </div> -->
+        <div class="image">
+            <img src="pedestrian_detection.jpeg" alt="Pedestrian Detection in Traffic">
+        </div>
+        <div class="image">
+            <img src="Frame.png" alt="Pedestrian Detection in Traffic">
+        </div>
+        
+        <h2>Anomaly Detection Approach</h2>
+        <p>
+            To identify anomalous behavior, we computed velocity and acceleration for each detected pedestrian based on frame-to-frame movement. 
+            An LSTM Autoencoder was trained on normal pedestrian movements and used to detect deviations from expected behavior by analyzing reconstruction errors. 
+            Higher reconstruction errors indicate anomalous behavior such as sudden movement changes, erratic walking, or unsafe pedestrian activity.
+        </p>
+        <div class="image">
+            <img src="Yolov8.png" alt="Anomaly Detection using LSTM Autoencoder">
+        </div>
+        <div class="image">
+            <img src="anomaly_detection.png" alt="Anomaly Detection using LSTM Autoencoder">
+        </div>
+        
+        <h2>Visualizations & Results</h2>
+        <p>
+            To better understand pedestrian behavior, several visualizations were generated:
+            <ul>
+                <li><strong>Heatmap of Pedestrian Movements:</strong> Highlights common walking areas and high-risk zones.</li>
+                <li><strong>Velocity vs. Acceleration Scatter Plot:</strong> Shows speed variations and potential anomalies.</li>
+                <li><strong>Trajectory Plot:</strong> Displays pedestrian movement paths over time.</li>
+                <li><strong>Anomalous Frames:</strong> Highlights frames with unusual pedestrian behavior.</li>
+            </ul>
+        </p>
+        <div class="image">
+            <img src="heatmap.png" alt="Heatmap of Pedestrian Movement Patterns">
+        </div>
+        <div class="image">
+            <img src="Pedestrian _Trajectories.png" alt="Pedestrian Trajectories Over Time">
+        </div>
+        <div class="image">
+            <img src="VelocityvsAcc.png" alt="Pedestrian Trajectories Over Time">
+        </div>
+        
+        <h2>Conclusion & Future Work</h2>
+        <p>
+            This project successfully demonstrated the effectiveness of deep learning-based anomaly detection for pedestrian safety in autonomous driving environments. 
+            The integration of YOLOv8 and LSTM Autoencoder allowed us to detect irregular pedestrian behavior with high accuracy. 
+            Future improvements include deploying the model in real-time AV systems, improving dataset diversity, and refining the anomaly thresholding technique to minimize false positives.
+        </p>
+        <div class="image">
+            <img src="anomalous_frame.jpeg" alt="Example of Anomalous Pedestrian Detected">
+        </div>
+    </div>
+    
+    <footer>© 2025 Anomalous Pedestrian Detection | Research Project</footer>
+</body>
+</html>
