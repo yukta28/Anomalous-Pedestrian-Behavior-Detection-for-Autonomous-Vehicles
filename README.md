@@ -25,6 +25,7 @@ Web-based Report displaying insights, images, and embedded video
 1️⃣ Clone the Repository
 
 git clone https://github.com/your-username/anomalous-pedestrian-detection.git
+
 cd anomalous-pedestrian-detection
 
 2️⃣ Install Dependencies
